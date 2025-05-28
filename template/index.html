@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Username Checker</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input[type="text"] { padding: 10px; width: 200px; }
+    button { padding: 10px; }
+    ul { margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Username Checker (Twitter)</h1>
+  <form method="POST">
+    <label>Masukkan kata dasar username:</label><br><br>
+    <input type="text" name="base_username" required>
+    <button type="submit">Cek</button>
+  </form>
+
+  {% if available is not none %}
+    <h2>Username tersedia dari '{{ base }}'</h2>
+    <ul>
+      {% for uname in available %}
+        <li>✅ {{ uname }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</body>
+</html>
